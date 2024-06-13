@@ -1,15 +1,18 @@
-class LoginResponseModel {
+class UserModel {
   String? token;
+  bool? isLogin;
 
-  LoginResponseModel({this.token});
+  UserModel({this.token, this.isLogin});
 
-  LoginResponseModel.fromJson(Map<String, dynamic> json) {
+  UserModel.fromJson(Map<String, dynamic> json) {
     token = json['token'];
+    isLogin = json['isLogin'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['token'] = token;
+    data['isLogin'] = token;
     return data;
   }
 }
