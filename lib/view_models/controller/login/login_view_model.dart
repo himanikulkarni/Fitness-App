@@ -33,7 +33,8 @@ class LoginViewModel extends GetxController {
         UserModel userModel = UserModel(token: value['token'], isLogin: true);
 
         userPreference.saveUser(userModel).then((value) {
-          Get.toNamed(RouteName.homeScreen);
+          Get.delete<LoginViewModel>();
+          Get.toNamed(RouteName.homeScreen)!.then((value) {});
         }).onError((error, stackTrace) {});
         Utils.SnackBar('Login', 'Login successfully');
       }
